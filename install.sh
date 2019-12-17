@@ -4,7 +4,7 @@
 export MINIFY_VERSION=2.6.1
 export S3CMD_VERSION=2.0.2
 apt-get update
-apt-get install -y python
+apt-get install -y python3 wget procps
 
 # Install zImageOptimizer -  https://github.com/zevilz/zImageOptimizer
 
@@ -22,7 +22,7 @@ mv minify /usr/bin/
 wget https://sourceforge.net/projects/s3tools/files/s3cmd/${S3CMD_VERSION}/s3cmd-${S3CMD_VERSION}.tar.gz
 tar xzf s3cmd-${S3CMD_VERSION}.tar.gz
 cd s3cmd-${S3CMD_VERSION}
-python setup.py install
+python3 setup.py install
 
 # Clean Install
 
