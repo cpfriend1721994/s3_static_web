@@ -1,8 +1,6 @@
 #!/bin/bash
 
 # Init Configure
-export MINIFY_VERSION=2.6.1
-export S3CMD_VERSION=2.0.2
 apt-get update
 apt-get install -y python3 wget procps
 
