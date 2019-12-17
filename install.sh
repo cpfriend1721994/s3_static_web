@@ -6,7 +6,7 @@ apt-get install -y python3 wget procps
 
 # Install zImageOptimizer -  https://github.com/zevilz/zImageOptimizer
 
-./zImageOptimizer.sh -c
+echo 1 | ./zImageOptimizer.sh -c
 
 # Install Minify CLI - https://github.com/tdewolff/minify/tree/master/cmd/minify
 
