@@ -14,6 +14,7 @@ wget https://github.com/tdewolff/minify/releases/download/v${MINIFY_VERSION}/min
 tar xzf minify_${MINIFY_VERSION}_linux_amd64.tar.gz
 chmod +x minify
 mv minify /usr/bin/
+rm -rf LICENSE.md cmd/ minify_${MINIFY_VERSION}_linux_amd64.tar.gz
 
 # Install S3cnd - https://github.com/s3tools/s3cmd
 
@@ -21,6 +22,8 @@ wget https://sourceforge.net/projects/s3tools/files/s3cmd/${S3CMD_VERSION}/s3cmd
 tar xzf s3cmd-${S3CMD_VERSION}.tar.gz
 cd s3cmd-${S3CMD_VERSION}
 python3 setup.py install
+cd ..
+rm -rf s3cmd-${S3CMD_VERSION}/ s3cmd-${S3CMD_VERSION}.tar.gz
 
 # Clean Install
 
