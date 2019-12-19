@@ -2,7 +2,7 @@
 
 # Init Configure
 apt-get update
-apt-get install -y python3 wget procps lsb-release
+apt-get install -y python3 wget procps lsb-release python3-setuptools
 
 # Install zImageOptimizer -  https://github.com/zevilz/zImageOptimizer
 
