@@ -1,4 +1,4 @@
-FROM golang:buster
+FROM debian:stretch-slim
 ADD . /
 WORKDIR /
 RUN ./install.sh
