@@ -1,8 +1,9 @@
 #!/bin/bash
+set -eo pipefail
 
 # Init Configure
 apt-get update
-apt-get install -y python3 wget procps lsb-release python3-setuptools jpegoptim libjpeg-progs pngcrush optipng advancecomp gifsicle wget autoconf automake libtool make bc
+apt-get install -y python3 wget procps lsb-release python3-setuptools jpegoptim libjpeg-progs pngcrush optipng advancecomp gifsicle autoconf automake libtool make bc
 
 # Install zImageOptimizer -  https://github.com/zevilz/zImageOptimizer
 

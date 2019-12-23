@@ -5,4 +5,5 @@ ENV S3CMD_VERSION 2.0.2
 ADD . /
 WORKDIR /
 RUN ./install.sh
-CMD cmd.sh
+ENTRYPOINT entrypoint.sh
+CMD []
