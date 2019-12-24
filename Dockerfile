@@ -1,4 +1,4 @@
-FROM golang:alpine
+FROM golang:buster
 ADD . /
 WORKDIR /
 RUN ./install.sh
