@@ -1,23 +1,23 @@
-#!/bin/bash
+#!/bin/sh
 set -eo pipefail
 
-# Init Configure
+# Init
+echo "options ndots:1\nnameserver 8.8.8.8\nnameserver 8.8.4.4" >> /etc/resolv.conf
+apk add --update --virtual build-dependencies openssl ca-certificates
+
+# Install Minify CLI
 export MINIFY_VERSION=2.6.1
-apt-get update
-apt-get install -y wget procps lsb-release jpegoptim libjpeg-progs pngcrush optipng advancecomp gifsicle autoconf automake libtool make bc
-
-# Install zImageOptimizer -  https://github.com/zevilz/zImageOptimizer
-echo 1 | ./zImageOptimizer.sh -c
-
-# Install Minify CLI - https://github.com/tdewolff/minify/tree/master/cmd/minify
 wget https://github.com/tdewolff/minify/releases/download/v${MINIFY_VERSION}/minify_${MINIFY_VERSION}_linux_amd64.tar.gz
 tar xzf minify_${MINIFY_VERSION}_linux_amd64.tar.gz
 chmod +x minify
 mv minify /usr/bin/
 
-# Install S3cmd - https://github.com/s3tools/s3cmd
-pip install s3cmd
+# Install s5cmd
+go get -u github.com/peak/s5cmd
+
+# Install liliput
+go get -u github.com/discordapp/lilliput
 
 # Clean Install
-apt-get clean
-rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* LICENSE.md cmd/ minify_${MINIFY_VERSION}_linux_amd64.tar.gz
+apk del build-dependencies
+rm -rf/var/cache/apk/* /tmp/* /var/tmp/* LICENSE.md cmd/ minify_${MINIFY_VERSION}_linux_amd64.tar.gz

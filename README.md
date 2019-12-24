@@ -3,9 +3,9 @@ Docker image for push static web pages to s3, with compression
 
 This image contains:
 
-1. [zImageOptimizer](https://github.com/zevilz/zImageOptimizer) for compress images
+1. [liliput](https://github.com/discordapp/lilliput) for compress images
 2. [minify CLI](https://github.com/tdewolff/minify/tree/master/cmd/minify) for minify html, js, css
-3. [s3cmd](https://github.com/s3tools/s3cmd) for synchronize static web to S3
+3. [s5cmd](https://github.com/peak/s5cmd) for synchronize static web to S3
 
 
 

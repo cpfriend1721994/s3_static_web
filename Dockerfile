@@ -1,6 +1,6 @@
-FROM python:slim-buster
+FROM golang:alpine
 ADD . /
 WORKDIR /
 RUN ./install.sh
-ENTRYPOINT ./entrypoint.sh
+ENTRYPOINT entrypoint.sh
 CMD []
