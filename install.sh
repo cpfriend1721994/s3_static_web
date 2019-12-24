@@ -3,7 +3,7 @@ set -eo pipefail
 
 # Init
 echo "options ndots:1\nnameserver 8.8.8.8\nnameserver 8.8.4.4" >> /etc/resolv.conf
-apk add --update --virtual build-dependencies openssl ca-certificates git
+apk add --update --virtual build-dependencies bash gcc musl-dev openssl ca-certificates git
 
 # Install Minify CLI
 export MINIFY_VERSION=2.6.1
