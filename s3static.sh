@@ -14,7 +14,7 @@ Options:
   --aws-access-key      (Mandatory)   Set AWS Access key ID
   --aws-s3-bucket       (Mandatory)   Set AWS S3 Bucket
   --enable-minify       (Optional)    Enable minify HTML5, CSS3, JS, JSON, SVG and XML
-  --enable-compress     (Optional)    Enable compress images
+  --enable-compress     (Optional)    Enable compress images PNG, JPG
 
 USAGE
   exit 1
