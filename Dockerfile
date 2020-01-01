@@ -12,11 +12,9 @@ RUN go get github.com/pierrec/lz4 && cd /go/src/github.com/pierrec/lz4 && git fe
 RUN go get github.com/aprimadi/imagecomp
 RUN go install github.com/aprimadi/imagecomp
 RUN mv /go/bin/imagecomp /usr/bin/
-RUN go get -u github.com/golang/dep/cmd/dep
-RUN mv /go/bin/dep /usr/bin/
 ADD . /go/src/github.com/s3_static_web
 WORKDIR /go/src/github.com/s3_static_web
-RUN dep ensure && go build -o s3static && mv s3static /usr/bin/
+RUN go build -o s3static && mv s3static /usr/bin/
 FROM alpine
 COPY --from=bethrezen/mozjpeg-docker /usr/local/bin/* /usr/bin/
 COPY --from=builder /usr/bin/* /usr/bin/
