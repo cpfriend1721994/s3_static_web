@@ -20,3 +20,4 @@ RUN dep ensure && go build -o s3static && mv s3static /usr/bin/
 FROM alpine
 COPY --from=bethrezen/mozjpeg-docker /usr/local/bin/* /usr/bin/
 COPY --from=builder /usr/bin/* /usr/bin/
+CMD s3static
