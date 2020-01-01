@@ -1,5 +1,5 @@
 # s3_static_web
-Docker image for push static web pages to s3, with compression
+Docker image for push static web pages to s3, with compress images and minify HTML/JS/CSS
 
 This image combine 3 components:
 
