@@ -1,11 +1,21 @@
 package main
 
 import (
+  "fmt"
   "log"
   "os"
   "os/exec"
   "github.com/urfave/cli/v2"
 )
+
+func cmdRun(command string) {
+  cmd := exec.Command(command)
+  out, err := cmd.CombinedOutput()
+  if err != nil {
+      log.Fatalf("%s\n", err)
+  }
+  fmt.Printf("%s\n", string(out))
+}
 
 func main() {
   app := &cli.App{
@@ -23,18 +33,10 @@ func main() {
     Action: func(c *cli.Context) error {
       if c.Args().Get(2) != "" || c.Args().Get(0) == "" || c.Args().Get(1) == "" {
         log.Fatal("Wrong numbers of arguments, must be 2")
-        return nil
-      }
-      if os.Getenv("AWS_ACCESS_KEY_ID") == "" || os.Getenv("AWS_SECRET_ACCESS_KEY") == "" || os.Getenv("AWS_REGION") == "" {
+      } else if os.Getenv("AWS_ACCESS_KEY_ID") == "" || os.Getenv("AWS_SECRET_ACCESS_KEY") == "" || os.Getenv("AWS_REGION") == "" {
         log.Fatal("All AWS environment variables is mandatory")
-        return nil
-      }
-      cmd := exec.Command("ls", "-lah")
-      cmd.Stdout = os.Stdout
-      cmd.Stderr = os.Stderr
-      err := cmd.Run()
-      if err != nil {
-        log.Fatalf("%s\n", err)
+      } else {
+        cmdRun(`find ` + c.Args().Get(0) + ` -regex ".*\.\(css\|htm\|html\|js\|json\|svg\|xml\)" -exec minify "{}" -o "{}" \;`)
       }
       return nil
     },

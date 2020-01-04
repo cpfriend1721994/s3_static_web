@@ -1,12 +1,11 @@
 # s3_static_web
 Docker image for push static web pages to s3, with compress images and minify HTML/JS/CSS
 
-This image combine 4 components:
+This image combine 3 components:
 
 1. [s5cmd](https://github.com/peak/s5cmd) for synchronize static web to S3
-2. [minify CLI](https://github.com/tdewolff/minify/tree/master/cmd/minify) for minify HTML5, CSS3, JS, JSON, SVG and XML
-3. [imagecomp](https://github.com/aprimadi/imagecomp) for compress images PNG, JPG
-4. [s3static](https://github.com/cpfriend1721994/s3_static_web) a mix between s5cmd, minify and imagecomp, for push static web pages to s3, with compress images and minify HTML/JS/CSS
+2. [minify CLI](https://github.com/tdewolff/minify/tree/master/cmd/minify) for minify HTML5/CSS3/JS/JSON/SVG/XML
+3. [s3static](https://github.com/cpfriend1721994/s3_static_web) a mix between s5cmd, minify and some image tools, for push static web pages to s3, with compress images and minify HTML5/CSS3/JS/JSON/SVG/XML
 
 
 
