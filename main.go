@@ -37,11 +37,13 @@ func main() {
         log.Fatal("All AWS environment variables is mandatory")
       } else {
         cmdRun(`find ` + c.Args().Get(0) + ` -regex ".*\.\(css\|htm\|html\|js\|json\|svg\|xml\)" -exec minify "{}" -o "{}" \;`)
+        cmdRun(`find ` + c.Args().Get(0) + ` -regex ".*\.\(png\)" -exec pngquant -f --ext=.png --quality=85-95 "{}" \;`)
+        cmdRun(`find ` + c.Args().Get(0) + ` -regex ".*\.\(jpg\|jpeg\)" -exec jpegoptim -f --max=95 --size=0.95 -o "{}" \;`)
+        cmdRun(`find ` + c.Args().Get(0) + ` -regex ".*\.\(gif\)" -exec gifsicle --lossy=100 "{}" -o "{}" \;`)
       }
       return nil
     },
   }
-
   err := app.Run(os.Args)
   if err != nil {
     log.Fatal(err)
